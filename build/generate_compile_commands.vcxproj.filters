@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\github-intellidea\CmakeExampleProject\build\CMakeFiles\4a1c5c31657b4deaef7e7d4afe3f6fbd\generate_compile_commands.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\github-intellidea\CmakeExampleProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\github-intellidea\CmakeExampleProject\build\CMakeFiles\generate_compile_commands" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F0223E78-4D9E-3E4F-B54B-6F8AB500DE21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

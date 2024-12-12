@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-game-release-noDocker",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-Command",
+        "if (!(Test-Path -Path \"build\")) { New-Item -ItemType Directory -Path \"build\" };",
+        "cmake x64 -S . -B build -DMSVC=1 -DCMAKE_BUILD_TYPE=Release;",
+        "cmake --build build --config Release;"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "build-game-debug-noDocker",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-Command",
+        "if (!(Test-Path -Path \"build\")) { New-Item -ItemType Directory -Path \"build\" };",
+        "cmake x64 -S . -B build -DMSVC=true -DCMAKE_BUILD_TYPE=Debug;",
+        "cmake --build build --config Debug;"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "run-game-release-noDocker",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-Command",
+        "cd ${workspaceFolder}/build/Release;",
+        "./game.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "run-game-debug-noDocker",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-Command",
+        "cd ${workspaceFolder}/build/Debug;",
+        "./game.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+^D:\GITHUB-INTELLIDEA\CMAKEEXAMPLEPROJECT\BUILD\CMAKEFILES\4A1C5C31657B4DEAEF7E7D4AFE3F6FBD\COPY_RESOURCES.RULE
+setlocal
+echo start copying models and shaders at && date /T && echo The current time is: %TIME%
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/github-intellidea/CmakeExampleProject/build/Release/resources/models
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/github-intellidea/CmakeExampleProject/build/Release/resources/shaders
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/github-intellidea/CmakeExampleProject/build/Release/resources/tex
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/resources/models %%G in ( *.obj *.png *.meta *.mtl *.png.meta ) do ( "C:/Program Files/CMake/bin/cmake.exe" -E copy_if_different %%G D:/github-intellidea/CmakeExampleProject/build/Release/resources/models/%%~nxG )
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/resources/shaders %%G in ( *.frag *.spv *.vert ) do ( "C:/Program Files/CMake/bin/cmake.exe" -E copy_if_different %%G D:/github-intellidea/CmakeExampleProject/build/Release/resources/shaders/%%~nxG )
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/resources/tex %%G in ( *.jpg *.png ) do ( "C:/Program Files/CMake/bin/cmake.exe" -E copy_if_different %%G D:/github-intellidea/CmakeExampleProject/build/Release/resources/tex/%%~nxG )
+if %errorlevel% neq 0 goto :cmEnd
+echo Copy completed at && date /T && echo The current time is: %TIME%
+if %errorlevel% neq 0 goto :cmEnd
+echo Start removing files at && date /T && echo The current time is: %TIME%
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/build/Release/resources/models %%G in ( *.obj *.png *.meta *.mtl *.png.meta ) do @if not exist D:/github-intellidea/CmakeExampleProject/resources/models/%%~nxG ( echo Deleting %%G & del /Q %%G )
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/build/Release/resources/shaders %%G in ( *.frag *.spv *.vert ) do @if not exist D:/github-intellidea/CmakeExampleProject/resources/shaders/%%~nxG ( echo Deleting %%G & del /Q %%G )
+if %errorlevel% neq 0 goto :cmEnd
+for /R D:/github-intellidea/CmakeExampleProject/build/Release/resources/tex %%G in ( *.jpg *.png ) do @if not exist D:/github-intellidea/CmakeExampleProject/resources/tex/%%~nxG ( echo Deleting %%G & del /Q %%G )
+if %errorlevel% neq 0 goto :cmEnd
+echo Remove completed at && date /T && echo The current time is: %TIME%
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\GITHUB-INTELLIDEA\CMAKEEXAMPLEPROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/github-intellidea/CmakeExampleProject -BD:/github-intellidea/CmakeExampleProject/build --check-stamp-file D:/github-intellidea/CmakeExampleProject/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

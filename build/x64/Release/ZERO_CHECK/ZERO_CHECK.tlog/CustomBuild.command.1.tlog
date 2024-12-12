@@ -1,0 +1,10 @@
+^D:\GITHUB-INTELLIDEA\CMAKEEXAMPLEPROJECT\BUILD\CMAKEFILES\4A1C5C31657B4DEAEF7E7D4AFE3F6FBD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/github-intellidea/CmakeExampleProject -BD:/github-intellidea/CmakeExampleProject/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/github-intellidea/CmakeExampleProject/build/game.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

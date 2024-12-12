@@ -1,0 +1,22 @@
+^D:\GITHUB-INTELLIDEA\CMAKEEXAMPLEPROJECT\BUILD\CMAKEFILES\4A1C5C31657B4DEAEF7E7D4AFE3F6FBD\RUN_COMPILE_SCRIPT.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo "Running shader compilation script..."
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E chdir D:/github-intellidea/CmakeExampleProject/resources/shaders/ cmd /c compile.bat
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\GITHUB-INTELLIDEA\CMAKEEXAMPLEPROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/github-intellidea/CmakeExampleProject -BD:/github-intellidea/CmakeExampleProject/build --check-stamp-file D:/github-intellidea/CmakeExampleProject/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

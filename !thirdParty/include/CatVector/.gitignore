@@ -1,0 +1,20 @@
+*.exe
+tester
+dbg
+std_*
+lni_*
+folly_*
+*.swp
+*.stackdump
+*.o
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+*.vcxproj
+*.vcxproj.filters
+*.sln
+*.VC.db
+/.vscode
+/build
